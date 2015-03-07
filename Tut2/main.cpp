@@ -51,10 +51,20 @@ int main()
 		"Denominator of fraction 2: " << total_2.getf2D() << endl;
 
 	Product = total_2.multiply();
+	cout << endl << "Product: "; 
 	Product.print();
 
+	cout << endl << "Quotient: ";
 	Quotient = total_2.divide();
 	Quotient.print();
+
+	cout << endl << "Sum: ";
+	Sum = total_2.add();
+	Sum.print();
+
+	cout << endl << "Difference: ";
+	Difference = total_2.subtract();
+	Difference.print();
 
 	return 0;
 }

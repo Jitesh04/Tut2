@@ -81,26 +81,52 @@ Fraction Fraction::divide()
 {
 	Fraction quotient;
 
-	quotient.numerator = newf1Numerator/newf2Numerator;
-	quotient.denominator = newf1Denominator/newf2Denominator;
+	quotient.numerator = newf1Numerator*newf2Denominator;
+	quotient.denominator = newf1Denominator*newf2Numerator;
 
 	return quotient;
 }
+
+Fraction Fraction::add()
+{
+	Fraction sum;
+
+	sum.numerator = (newf1Numerator*newf2Denominator)+(newf2Numerator*newf1Denominator);
+	sum.denominator = newf1Denominator*newf2Denominator;
+
+	return sum;
+}
+
+Fraction Fraction::subtract()
+{
+	Fraction difference;
+
+	difference.numerator = (newf1Numerator*newf2Denominator) - (newf2Numerator*newf1Denominator);
+	difference.denominator = newf1Denominator*newf2Denominator;
+
+	return difference;
+}
+
 void Fraction::print(void)
 {
-	cout << endl << numerator << "/" << denominator << endl; 
-	//int frac = numerator % denominator, whole = numerator / denominator;
-	//if (whole != 0) //Mixed fraction
-	//{
-	//	if (frac == 0)
-	//		cout << whole;
-	//	else
-	//		cout << whole << "  " << frac << "/" << denominator;
-	//}
-	//else if (numerator == 0)
-	//	cout << numerator;
-	//else
-	//	cout << numerator << "/" << denominator;
+	//cout << numerator << "/" << denominator << endl; 
+
+	int n = numerator;
+	int d = denominator;
+
+	int remainder = n % d;
+	int	whole = numerator / denominator;
+
+	if (whole != 0) 
+	{
+		if (remainder == 0)
+			cout << whole << endl;
+		else
+			cout << whole << "  " << remainder << "/" << denominator << endl;
+	}
+
+	else
+		cout << numerator << "/" << denominator << endl;
 };
 
 
